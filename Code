@@ -1,0 +1,140 @@
+
+############## Simple Calculator ##############
+
+######### using Python & Tkinter GUI ##########
+
+########## Code by Precious Brazil ############
+
+################### ENJOY~~ ################### 
+
+#importing tkinter
+from tkinter import* 
+from tkinter import messagebox
+
+root = Tk()
+root.geometry("500x350+90+10") #the width and height of the calculator
+root.title("Calculator")
+root.configure(background = 'ivory2')
+
+#top frame
+Tops = Frame(root, width = 500, height = 25, bd=8, relief = "groove")
+Tops.pack(side = TOP)
+
+#left frame
+frame1 = Frame(root, width = 300, height = 300, bd=8, relief = "groove")
+frame1.pack(side = LEFT)
+
+#right frame
+frame2 = Frame(root, width = 200, height = 300, bd=8, relief = "raise")
+frame2.pack(side = RIGHT)
+
+#color adjustments
+Tops.configure(background='white')
+frame2.configure(background='white')
+
+#Title text
+lblInfo = Label (Tops, font = ('Times', 20, 'bold'), text = "My Simple Calculator", bd = 8, anchor='w')
+lblInfo.grid (row=0, column = 0,)
+lblInfo = Label (Tops, font = ('Times', 8, 'bold italic'), text = "made with Python and Tkinter by Precious Brazil", bd = 2, bg= "white", anchor='w')
+lblInfo.grid (row=1, column = 0,)
+
+
+#Operation Using Else-elif-else
+def Enter():
+    if var.get==1:
+        Qty1=float(num_1.get())
+        Qty2=float(num_2.get())
+        Calculate = Qty1+Qty2
+        num_tot.set(Calculate)
+    elif var.get==2:
+        Qty1=float(num_1.get())
+        Qty2=float(num_2.get())
+        Calculate = Qty1-Qty2
+        num_tot.set(Calculate)
+    elif var.get==3:
+        Qty1=float(num_1.get())
+        Qty2=float(num_2.get())
+        Calculate = Qty1*Qty2
+        num_tot.set(Calculate)
+    elif var.get==4:
+        Qty1=float(num_1.get())
+        Qty2=float(num_2.get())
+        Calculate=Qty1/Qty2
+        num_tot.set(Calculate)
+    elif var.get==5:
+        Qty1=float(num_1.get())
+        Qty2=float(num_2.get())
+        Calculate=Qty1%Qty2
+        num_tot.set(Calculate)
+    elif var.get==6:
+        Qty1=float(num_1.get())
+        Qty2=float(num_2.get())
+        Calculate=Qty1**Qty2
+        num_tot.set(Calculate)
+    else:
+        Qty1=float(num_1.get())
+        Qty2=float(num_2.get())
+        Calculate=Qty1//Qty2
+        num_tot.set(Calculate)
+
+
+#Reset
+def Reset():
+        num_1.set("0")
+        num_2.set("0")
+        num_tot.set("0")
+#Quit
+def Quit():
+        qQuit = messagebox.askyesno("System", "Are you sure you want to quit?")
+        if qQuit > 0:
+            root.destroy()
+            return
+
+#declare label number variables
+var= IntVar()
+num_1= IntVar()
+num_2= IntVar()
+num_tot= IntVar()
+
+#radiobuttons
+rb1= Radiobutton(frame1, text="Add", variable=var, value=1,
+              font= ('Helvetica', 11, 'bold')) .grid(row=0, column=0, sticky = W)
+rb2= Radiobutton(frame1, text="Subtract", variable=var, value=2,
+              font= ('Helvetica', 11, 'bold')) .grid(row=1, column=0, sticky = W)
+rb3= Radiobutton(frame1, text="Multiply", variable=var, value=3,
+                font= ('Helvetica', 11, 'bold')) .grid(row=2, column=0, sticky = W)
+rb4= Radiobutton(frame1, text="Divide", variable=var, value=4,
+                font= ('Helvetica', 11, 'bold')) .grid(row=3, column=0, sticky = W)
+rb5= Radiobutton(frame1, text="Modulus", variable=var, value=5,
+                font= ('Helvetica', 11, 'bold')) .grid(row=0, column=1, sticky = W)
+rb6= Radiobutton(frame1, text="Exponentiate", variable=var, value=6,
+                font= ('Helvetica', 11, 'bold')) .grid(row=1, column=1, sticky = W)
+rb7= Radiobutton(frame1, text="Floor Division", variable=var, value=7,
+                font= ('Helvetica', 11, 'bold')) .grid(row=2, column=1, sticky = W)
+
+
+#entry and results
+lblnum_1 = Label(frame1, font= ('Helvetica', 9, 'bold'), text= "Enter First Number", fg="black") .grid(row = 4, column=0, sticky= W)
+txtnum_1 = Entry(frame1, font = ('Helvetica', 9, 'bold'), bd = 2, width = 5, bg= "gainsboro",
+                 textvariable = num_1) .grid (row = 4, column = 1, sticky = W)
+
+lblnum_2 = Label(frame1, font= ('Helvetica', 9, 'bold'), text= "Enter Second Number", fg="black", bd=8) .grid(row = 5, column=0, sticky= W)
+txtnum_2 = Entry(frame1, font = ('Helvetica', 9, 'bold'), bd = 2, width = 5, bg= "gainsboro",
+                 textvariable = num_2) .grid (row = 5, column= 1, sticky = W)
+
+lblnum_tot = Label(frame1, font= ('Helvetica', 9, 'bold'), text= "The result will become:                   ", fg="black", bd= 8, justify ="left")
+lblnum_tot.grid(row=6, column= 0, sticky=W)
+lblans= Label(frame1, font= ('Helvetica', 9, 'bold'), bd=2, width=5, bg="gainsboro",
+              textvariable= num_tot, relief='sunken') .grid(row=6, column=1, sticky = W)
+
+#right frame buttons
+btnTot = Button(frame2, pady=4, bd=4, fg = "black", font=('Times', 10, 'bold italic'), width=15, height=1,
+                  text ="Enter", bg= "white", command= Enter).grid(row=0, column=0)
+btnReset = Button(frame2, pady=4, bd=4, fg = "black",font=('Times', 10, 'bold italic'), width=15, height=1,
+                  text ="Reset", bg= "white", command = Reset) .grid(row=1, column=0)
+btnQuit = Button(frame2, pady=4, bd=4, fg = "black",font=('Times', 10, 'bold italic'), width= 15, height=1,
+                  text ="Quit", bg= "white", command = Quit) .grid(row=2, column=0)
+
+
+
+root.mainloop()
