@@ -42,47 +42,47 @@ lblInfo.grid (row=1, column = 0,)
 #Operation Using Else-elif-else
 def Enter():
     if var.get==1:
-        Qty1=float(num_1.get())
-        Qty2=float(num_2.get())
+        Qty1=float(num1.get())
+        Qty2=float(num2.get())
         Calculate = Qty1+Qty2
-        num_tot.set(Calculate)
+        numtot.set(Calculate)
     elif var.get==2:
-        Qty1=float(num_1.get())
-        Qty2=float(num_2.get())
+        Qty1=float(num1.get())
+        Qty2=float(num2.get())
         Calculate = Qty1-Qty2
         num_tot.set(Calculate)
     elif var.get==3:
-        Qty1=float(num_1.get())
-        Qty2=float(num_2.get())
+        Qty1=float(num1.get())
+        Qty2=float(num2.get())
         Calculate = Qty1*Qty2
-        num_tot.set(Calculate)
+        numtot.set(Calculate)
     elif var.get==4:
-        Qty1=float(num_1.get())
-        Qty2=float(num_2.get())
+        Qty1=float(num1.get())
+        Qty2=float(num2.get())
         Calculate=Qty1/Qty2
         num_tot.set(Calculate)
     elif var.get==5:
-        Qty1=float(num_1.get())
-        Qty2=float(num_2.get())
+        Qty1=float(num1.get())
+        Qty2=float(num2.get())
         Calculate=Qty1%Qty2
-        num_tot.set(Calculate)
+        numtot.set(Calculate)
     elif var.get==6:
-        Qty1=float(num_1.get())
-        Qty2=float(num_2.get())
+        Qty1=float(num1.get())
+        Qty2=float(num2.get())
         Calculate=Qty1**Qty2
-        num_tot.set(Calculate)
+        numtot.set(Calculate)
     else:
-        Qty1=float(num_1.get())
-        Qty2=float(num_2.get())
+        Qty1=float(num1.get())
+        Qty2=float(num2.get())
         Calculate=Qty1//Qty2
-        num_tot.set(Calculate)
+        numtot.set(Calculate)
 
 
 #Reset
 def Reset():
-        num_1.set("0")
-        num_2.set("0")
-        num_tot.set("0")
+        num1.set("0")
+        num2.set("0")
+        numtot.set("0")
 #Quit
 def Quit():
         qQuit = messagebox.askyesno("System", "Are you sure you want to quit?")
@@ -92,9 +92,9 @@ def Quit():
 
 #declare label number variables
 var= IntVar()
-num_1= IntVar()
-num_2= IntVar()
-num_tot= IntVar()
+num1= IntVar()
+num2= IntVar()
+numtot= IntVar()
 
 #radiobuttons
 rb1= Radiobutton(frame1, text="Add", variable=var, value=1,
@@ -114,18 +114,18 @@ rb7= Radiobutton(frame1, text="Floor Division", variable=var, value=7,
 
 
 #entry and results
-lblnum_1 = Label(frame1, font= ('Helvetica', 9, 'bold'), text= "Enter First Number", fg="black") .grid(row = 4, column=0, sticky= W)
-txtnum_1 = Entry(frame1, font = ('Helvetica', 9, 'bold'), bd = 2, width = 5, bg= "gainsboro",
-                 textvariable = num_1) .grid (row = 4, column = 1, sticky = W)
+lblnum1 = Label(frame1, font= ('Helvetica', 9, 'bold'), text= "Enter First Number", fg="black") .grid(row = 4, column=0, sticky= W)
+txtnum1 = Entry(frame1, font = ('Helvetica', 9, 'bold'), bd = 2, width = 5, bg= "gainsboro",
+                 textvariable = num1) .grid (row = 4, column = 1, sticky = W)
 
-lblnum_2 = Label(frame1, font= ('Helvetica', 9, 'bold'), text= "Enter Second Number", fg="black", bd=8) .grid(row = 5, column=0, sticky= W)
-txtnum_2 = Entry(frame1, font = ('Helvetica', 9, 'bold'), bd = 2, width = 5, bg= "gainsboro",
-                 textvariable = num_2) .grid (row = 5, column= 1, sticky = W)
+lblnum2 = Label(frame1, font= ('Helvetica', 9, 'bold'), text= "Enter Second Number", fg="black", bd=8) .grid(row = 5, column=0, sticky= W)
+txtnum2 = Entry(frame1, font = ('Helvetica', 9, 'bold'), bd = 2, width = 5, bg= "gainsboro",
+                 textvariable = num2) .grid (row = 5, column= 1, sticky = W)
 
-lblnum_tot = Label(frame1, font= ('Helvetica', 9, 'bold'), text= "The result will become:                   ", fg="black", bd= 8, justify ="left")
-lblnum_tot.grid(row=6, column= 0, sticky=W)
+lblnumtot = Label(frame1, font= ('Helvetica', 9, 'bold'), text= "The result will become: ", fg="black", bd= 8, justify ="left")
+lblnumtot.grid(row=6, column= 0, sticky=W)
 lblans= Label(frame1, font= ('Helvetica', 9, 'bold'), bd=2, width=5, bg="gainsboro",
-              textvariable= num_tot, relief='sunken') .grid(row=6, column=1, sticky = W)
+              textvariable= numtot, relief='sunken') .grid(row=6, column=1, sticky = W)
 
 #right frame buttons
 btnTot = Button(frame2, pady=4, bd=4, fg = "black", font=('Times', 10, 'bold italic'), width=15, height=1,
